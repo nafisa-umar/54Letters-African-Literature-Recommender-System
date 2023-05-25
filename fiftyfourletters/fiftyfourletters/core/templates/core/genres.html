@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Explore Genres</title>
+    <link rel="stylesheet" href="{% static 'core/genres/style.css' %}" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <h2>Refresh to see new genres</h2>
+    <div class="buttons">
+      {% for genre in genres %}
+      <a href="{% url 'books_by_genre' genre.genre_id %}"
+        ><button class="style-5">{{genre.name}} ⚡</button></a
+      >
+      <!-- partial -->
+      {% endfor %}
+    </div>
+  </body>
+</html>
